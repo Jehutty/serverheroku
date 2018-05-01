@@ -44,4 +44,4 @@ app.get('/api', function(req,res){
 
 
 
-serv.listen(8000);
+serv.listen(process.env.PORT || 8000);
