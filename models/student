@@ -1,0 +1,28 @@
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+
+
+/*
+STUDENT MODEL used to query the database,
+consists of 3 fields of type String that indicate the Student's first name, surname, matriculation number
+one String Array that holds the modules that the user is taking.
+one String Array for each of the user's, modules that hold's the dates the student attended these lectures.
+ */
+
+var StudentModel = new Schema({
+    firstname: String,
+    surname: String,
+    matnum:{type: String, required: true, index:{unique:true}},
+    deviceID:String,
+    course:String,
+    modules: [String],
+    module_0_attendance: [String],
+    module_1_attendance: [String],
+    module_2_attendance: [String],
+    module_3_attendance: [String],
+});
+
+// course: String,
+// deviceID: String,
+let Student = module.exports = mongoose.model('Student', StudentModel);
